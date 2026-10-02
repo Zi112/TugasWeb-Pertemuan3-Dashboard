@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Custom CSS pelengkap Bootstrap 5
+   Fokus: typography fluid pakai clamp(), styling hero & card produk.
+   ========================================================================== */
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   clamp() untuk typography — ukuran font menyesuaikan lebar layar secara
+   halus (fluid), tanpa perlu breakpoint terpisah untuk tiap ukuran teks.
+   Format: clamp(nilai-minimum, nilai-preferensi-relatif-viewport, nilai-maksimum)
+   -------------------------------------------------------------------------- */
+.hero-title {
+    font-size: clamp(1.75rem, 5vw + 1rem, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.35rem);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.section-title {
+    font-size: clamp(1.5rem, 3vw + 0.5rem, 2.25rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: clamp(0.95rem, 1vw + 0.6rem, 1.15rem);
+    font-weight: 700;
+    color: #7c3aed;
+}
+
+/* Hero section */
+.hero-section {
+    min-height: 60vh;
+    background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+}
+
+/* Kartu produk */
+.product-card {
+    border: none;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(124, 58, 237, 0.15);
+}
+
+/* Gambar produk responsif: mengisi lebar kartu, rasio konsisten,
+   dan otomatis menyesuaikan tinggi kartu di semua ukuran layar. */
+.product-card .card-img-top {
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+}
+
+.navbar-brand {
+    font-size: clamp(1.1rem, 2vw + 0.5rem, 1.5rem);
+}
+
+/* Toolbar filter kategori */
+.btn-filter {
+    border: 1px solid #dee2e6;
+    background-color: #fff;
+    color: #495057;
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.btn-filter:hover {
+    border-color: #7c3aed;
+    color: #7c3aed;
+}
+
+.btn-filter.active {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+    color: #fff;
+}

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk - TechStore</title>
+    <meta name="description" content="Katalog produk elektronik responsif dibangun dengan Bootstrap 5, mobile-first, mendukung berbagai ukuran layar.">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+    <!-- Navbar responsif dengan hamburger menu (bawaan Bootstrap) -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#home">TechStore</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Buka menu navigasi">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="#home">Beranda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#produk">Produk</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#kategori">Kategori</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section id="home" class="hero-section text-white text-center d-flex align-items-center">
+            <div class="container">
+                <h1 class="hero-title">Temukan Gadget Terbaikmu</h1>
+                <p class="hero-subtitle">Koleksi perangkat elektronik pilihan dengan harga bersahabat</p>
+                <a href="#produk" class="btn btn-light btn-lg rounded-pill px-4">Lihat Produk</a>
+            </div>
+        </section>
+
+        <!-- Katalog Produk -->
+        <section id="produk" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Produk Pilihan</h2>
+                    <p class="text-muted">Grid otomatis menyesuaikan: 1 kolom di HP, 2 di tablet, 3-4 di desktop</p>
+                </div>
+
+                <!-- Toolbar: kategori, pencarian, urutkan -->
+                <div class="filter-toolbar mb-4">
+                    <div class="d-flex flex-wrap gap-2 justify-content-center mb-3" id="categoryButtons">
+                        <button class="btn btn-sm btn-filter active" data-category="semua">Semua</button>
+                        <button class="btn btn-sm btn-filter" data-category="audio">Audio</button>
+                        <button class="btn btn-sm btn-filter" data-category="aksesoris">Aksesoris</button>
+                        <button class="btn btn-sm btn-filter" data-category="komputer">Komputer</button>
+                        <button class="btn btn-sm btn-filter" data-category="kelistrikan">Kelistrikan</button>
+                    </div>
+                    <div class="row g-2 justify-content-center">
+                        <div class="col-12 col-sm-6 col-md-5">
+                            <input type="search" id="searchInput" class="form-control" placeholder="Cari produk...">
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <select id="sortSelect" class="form-select">
+                                <option value="default">Urutkan: Default</option>
+                                <option value="asc">Harga Termurah</option>
+                                <option value="desc">Harga Termahal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p id="noResults" class="text-center text-muted mt-4 d-none">Produk tidak ditemukan.</p>
+                </div>
+
+                <!-- Grid responsif: 1 kolom (mobile) -> 2 kolom (sm) -> 3 kolom (lg) -> 4 kolom (xl) -->
+                <div class="row g-4" id="productGrid">
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="audio" data-price="349000" data-name="headphone wireless x1">
+                        <article class="card product-card h-100">
+                            <img src="gambar/headphone.jpg" class="card-img-top" alt="Headphone nirkabel warna hitam dengan bantalan telinga empuk" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Headphone Wireless X1</h3>
+                                <p class="card-text text-muted small flex-grow-1">Suara jernih, baterai tahan 30 jam, nyaman dipakai seharian.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 349.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="aksesoris" data-price="599000" data-name="smartwatch fit pro">
+                        <article class="card product-card h-100">
+                            <img src="gambar/smartwatch.jpg" class="card-img-top" alt="Smartwatch dengan layar sentuh dan tali silikon" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Smartwatch Fit Pro</h3>
+                                <p class="card-text text-muted small flex-grow-1">Pantau detak jantung, olahraga, dan notifikasi langsung dari pergelangan tangan.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 599.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="komputer" data-price="449000" data-name="keyboard mekanik rgb">
+                        <article class="card product-card h-100">
+                            <img src="gambar/keyboard.jpg" class="card-img-top" alt="Keyboard mekanik dengan lampu RGB" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Keyboard Mekanik RGB</h3>
+                                <p class="card-text text-muted small flex-grow-1">Switch responsif, lampu RGB kustom, cocok untuk kerja maupun gaming.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 449.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="komputer" data-price="279000" data-name="mouse gaming wireless">
+                        <article class="card product-card h-100">
+                            <img src="gambar/mouse.jpg" class="card-img-top" alt="Mouse gaming nirkabel warna hitam" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Mouse Gaming Wireless</h3>
+                                <p class="card-text text-muted small flex-grow-1">Sensor presisi tinggi, baterai awet, desain ergonomis.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 279.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="audio" data-price="199000" data-name="speaker bluetooth mini">
+                        <article class="card product-card h-100">
+                            <img src="gambar/speaker.jpg" class="card-img-top" alt="Speaker bluetooth portable" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Speaker Bluetooth Mini</h3>
+                                <p class="card-text text-muted small flex-grow-1">Suara bass mantap, tahan air, praktis dibawa bepergian.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 199.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="komputer" data-price="259000" data-name="webcam full hd 1080p">
+                        <article class="card product-card h-100">
+                            <img src="gambar/webcam.jpg" class="card-img-top" alt="Webcam HD untuk video call" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Webcam Full HD 1080p</h3>
+                                <p class="card-text text-muted small flex-grow-1">Gambar jernih untuk meeting online dan streaming.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 259.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="aksesoris" data-price="329000" data-name="power bank 20000mah">
+                        <article class="card product-card h-100">
+                            <img src="gambar/powerbank.jpg" class="card-img-top" alt="Power bank kapasitas besar" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Power Bank 20000mAh</h3>
+                                <p class="card-text text-muted small flex-grow-1">Fast charging, kapasitas besar, cukup untuk seharian penuh.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 329.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="audio" data-price="389000" data-name="earbuds tws pro">
+                        <article class="card product-card h-100">
+                            <img src="gambar/earbuds.jpg" class="card-img-top" alt="Earbuds nirkabel dengan casing charging" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Earbuds TWS Pro</h3>
+                                <p class="card-text text-muted small flex-grow-1">Noise cancelling, koneksi stabil, casing charging praktis.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 389.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="aksesoris" data-price="189000" data-name="laptop stand alumunium">
+                        <article class="card product-card h-100">
+                            <img src="gambar/laptopstand.jpg" class="card-img-top" alt="Laptop stand alumunium adjustable" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Laptop Stand Alumunium</h3>
+                                <p class="card-text text-muted small flex-grow-1">Ringan, dapat dilipat, menjaga laptop tetap sejuk dan postur duduk lebih nyaman.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 189.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="komputer" data-price="259000" data-name="usb-c hub 7-in-1">
+                        <article class="card product-card h-100">
+                            <img src="gambar/usbhub.jpg" class="card-img-top" alt="USB-C hub 7-in-1 dengan berbagai port" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">USB-C Hub 7-in-1</h3>
+                                <p class="card-text text-muted small flex-grow-1">HDMI, USB 3.0, card reader, dan power delivery dalam satu perangkat kecil.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 259.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="komputer" data-price="899000" data-name="portable ssd 1tb">
+                        <article class="card product-card h-100">
+                            <img src="gambar/ssd.jpg" class="card-img-top" alt="Portable SSD kapasitas 1TB" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Portable SSD 1TB</h3>
+                                <p class="card-text text-muted small flex-grow-1">Transfer kilat, ringkas, cocok untuk backup data dan kerja mobile.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 899.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="aksesoris" data-price="149000" data-name="ring light selfie">
+                        <article class="card product-card h-100">
+                            <img src="gambar/ringlight.jpg" class="card-img-top" alt="Ring light untuk selfie dan video call" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Ring Light Selfie</h3>
+                                <p class="card-text text-muted small flex-grow-1">Pencahayaan merata untuk konten kreator, dilengkapi klip HP dan tripod mini.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 149.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="komputer" data-price="650000" data-name="ram ddr4 16gb">
+                        <article class="card product-card h-100">
+                            <img src="gambar/ram.jpg" class="card-img-top" alt="Modul RAM DDR4 16GB" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">RAM DDR4 16GB</h3>
+                                <p class="card-text text-muted small flex-grow-1">Kecepatan 3200MHz, meningkatkan performa multitasking dan gaming.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 650.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="komputer" data-price="1450000" data-name="monitor led 24 inch">
+                        <article class="card product-card h-100">
+                            <img src="gambar/monitor.jpg" class="card-img-top" alt="Monitor LED 24 inch Full HD" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Monitor LED 24 inch</h3>
+                                <p class="card-text text-muted small flex-grow-1">Full HD, refresh rate tinggi, nyaman untuk kerja maupun gaming.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 1.450.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="kelistrikan" data-price="399000" data-name="ups 650va">
+                        <article class="card product-card h-100">
+                            <img src="gambar/ups.jpg" class="card-img-top" alt="UPS 650VA pelindung daya" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">UPS 650VA</h3>
+                                <p class="card-text text-muted small flex-grow-1">Menjaga perangkat tetap menyala saat listrik padam mendadak, melindungi dari kerusakan data.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 399.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-category="kelistrikan" data-price="129000" data-name="surge protector 6 outlet">
+                        <article class="card product-card h-100">
+                            <img src="gambar/surgeprotector.jpg" class="card-img-top" alt="Surge protector 6 outlet" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h6">Surge Protector 6 Outlet</h3>
+                                <p class="card-text text-muted small flex-grow-1">Melindungi perangkat elektronik dari lonjakan tegangan listrik mendadak.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="product-price">Rp 129.000</span>
+                                    <button class="btn btn-primary btn-sm">+ Keranjang</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-1 fw-bold">TechStore</p>
+            <p class="mb-0 text-muted small">&copy; 2026 TechStore. Dibuat untuk Tugas Rutin 3 - Pemrograman Web.</p>
+        </div>
+    </footer>
+
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
